@@ -1,4 +1,13 @@
 #!/bin/bash
+
+# Clean cache
+rm -rf _site \
+    .sass-cache \
+    .jekyll-cache \
+    .jekyll-metadata \
+    .tweet-cache \
+    vendor
+
 # brew install imagemagick
 # fix GH deplyment: bundle lock --add-platform x86_64-linux
 bundle install
