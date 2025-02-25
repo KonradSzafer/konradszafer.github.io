@@ -1,0 +1,251 @@
+/* Base reset & typography */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background-color: #fff;
+  color: #333;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ---- NAVBAR ---- */
+.navbar {
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #ddd;
+  position: fixed;
+  top: 0;
+  left: 30%;
+  right: 30%;
+  z-index: 999;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+nav ul li a {
+  padding: 0.5rem 0;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #007BFF; /* Hover color */
+}
+
+/* ---- MAIN CONTENT ---- */
+main {
+  margin: 6rem 30% 2rem; /* Centers the content area, 50% wide total */
+}
+
+/* ---- ABOUT SECTION ---- */
+#about {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.about-text {
+  flex: 1 1 50%;
+  padding-right: 2rem;
+  min-width: 300px;
+}
+
+.about-text h2 {
+  font-size: 2rem;
+  margin-bottom: 0.1em;
+}
+
+.about-text p {
+  margin-bottom: 1rem;
+}
+
+.about-photo {
+  flex: 1 1 0%;
+  text-align: center;
+  padding: 0 0rem;
+}
+
+.about-photo img {
+  max-width: 100%;
+  object-fit: cover;
+}
+
+.about-links {
+  display: flex;
+  width: fit-content;
+  justify-content: center;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.5rem 1rem;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin: 1rem auto;
+}
+
+.about-links a {
+  color: #333;
+  text-decoration: none;
+  font-weight: normal;
+  transition: #0056b3;
+  display: inline-flex;
+  align-items: center;
+}
+
+.about-links a:not(:last-child)::after {
+  content: "";
+  display: inline-block;
+  width: 1px;
+  height: 1em;
+  background-color: #ccc;
+  margin-left: 1rem;
+  margin-right: 0.5rem;
+}
+
+/* ---- PROJECTS / BLOG SECTIONS ---- */
+section {
+  margin-bottom: 2rem;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.section-content {
+  margin-bottom: 2rem;
+}
+
+/* ---- PROJECT ITEM STYLE ---- */
+.project {
+  margin-bottom: 1.5rem;
+}
+
+#projects {
+  /* Adjust this value to match the height of your navbar plus some extra space */
+  scroll-margin-top: 8rem;
+}
+
+.project p {
+  margin-bottom: 1rem;
+}
+
+/* -------------------------- */
+/* For VIDEOS: 16:9 container */
+/* -------------------------- */
+.project-media-video {
+  /* Keep video narrower than the text container */
+  max-width: 70%;
+  margin: 1rem auto;
+  position: relative;
+
+  /* Enforce a 16:9 aspect ratio for iframes */
+  aspect-ratio: 16 / 9;
+}
+
+.project-media-video iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  object-fit: cover; 
+}
+
+/* ---------------------------- */
+/* For IMAGES: natural ratio    */
+/* ---------------------------- */
+.project-media-image {
+  /* Keep images narrower than the text container, up to 70% of the parent width */
+  max-width: 70%;
+  margin: 1rem auto;
+}
+
+.project-media-image img {
+  display: block;
+  width: 100%;
+  height: auto;   /* Preserves natural aspect ratio */
+  border: 0;
+  /* If you want an absolute max width (e.g. 600px) no matter how wide the screen is: */
+  max-width: 600px; 
+}
+
+/* ---- PROJECT LINKS BAR ---- */
+.project-links {
+  display: flex;
+  width: fit-content;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: #f5f5f5; /* light grey background */
+  border-radius: 8px;
+  margin: 1rem auto; /* centers the bar */
+}
+
+.project-links a {
+  color: #007BFF;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+}
+
+.project-links a:hover {
+  color: #0056b3;
+}
+
+/* Delicate separators between links */
+.project-links a:not(:last-child)::after {
+  content: "";
+  display: inline-block;
+  width: 1px;
+  height: 1em;
+  background-color: #ccc;
+  margin-left: 0.75rem;  /* Increased left margin */
+  margin-right: 0.5rem;
+}
+
+/* ---- RESPONSIVE MEDIA QUERIES ---- */
+@media (max-width: 768px) {
+  .about-text,
+  .about-photo {
+    flex: 1 1 100%;
+    padding-right: 0;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Navbar becomes wider on smaller screens but remains centered */
+  .navbar {
+    left: 5%;
+    right: 5%;
+  }
+
+  /* Narrow main content more on small screens */
+  main {
+    margin: 5rem 5% 1rem;
+  }
+}
