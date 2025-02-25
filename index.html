@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Personal Webpage</title>
+
+  <style>
+    /* ---- GENERAL RESET ---- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      background-color: #fff; /* changed to white */
+      color: #333;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ---- NAVBAR ---- */
+    .navbar {
+      /* Shrink the navbar width and shift it left so text aligns nicely */
+      width: 70%;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 1rem 2rem;
+      border-bottom: 1px solid #ddd;
+      position: fixed;
+      top: 0;
+      left: 15%; /* This ensures the navbar starts 15% from the left */
+      z-index: 999;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav ul li a {
+      padding: 0.5rem 0;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #007BFF; /* Hover color */
+    }
+
+    /* ---- MAIN CONTENT ---- */
+    /* Match the main content to the navbar's horizontal positioning */
+    main {
+      margin: 6rem 15% 2rem; 
+    }
+
+    /* ---- ABOUT SECTION ---- */
+    #about {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 3rem;
+    }
+
+    .about-text {
+      flex: 1 1 50%;
+      padding-right: 2rem;
+      min-width: 300px;
+    }
+
+    .about-text h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .about-text p {
+      margin-bottom: 1rem;
+    }
+
+    .about-photo {
+      flex: 1 1 0%;
+      text-align: center;
+      padding: 0 0rem;
+    }
+
+    .about-photo img {
+      max-width: 100%; /* TODO add percents instead */
+      object-fit: cover;
+    }
+
+    /* ---- PROJECTS / BLOG SECTIONS ---- */
+    section {
+      margin-bottom: 2rem;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .section-content {
+      margin-bottom: 2rem;
+    }
+
+    /* ---- RESPONSIVE MEDIA QUERIES ---- */
+    @media (max-width: 768px) {
+      .about-text,
+      .about-photo {
+        flex: 1 1 100%;
+        padding-right: 0;
+        margin-bottom: 1.5rem;
+      }
+
+      /* Navbar becomes wider on smaller screens but remains centered */
+      .navbar {
+        width: 90%;
+        left: 5%;
+      }
+
+      /* Adjust margins on mobile to reduce side space */
+      main {
+        margin: 5rem 5% 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar (Name removed) -->
+  <header class="navbar">
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#blog">Blog</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main content -->
+  <main>
+    <!-- About Section -->
+    <section id="about">
+      <div class="about-text">
+        <h2>Konrad Szafer</h2>
+        <p>
+            I am currently a research assistant at ETH Zurich, where I’m working on Continual Learning and World Models, drawing inspiration from the way the brain learns.
+        </p>
+        <p>
+            Previously, I interned at Hugging Face, contributing to the LLM Evaluation team. I also spent half a year at CMU as a research assistant at AutonLab, where I worked on time-series foundational models and model evaluation with limited labeled data.
+        </p>
+        <p>
+            I graduated from Poznan University of Technology with a BSc in Automatic Control and Robotics and an MSc in Artificial Intelligence, focusing both of my theses on representation learning and foundational computer vision models—covering 2D and 3D respectively.
+        </p>
+      </div>
+      <div class="about-photo">
+        <img src="assets/profile.jpg" alt="Konrad Szafer">
+      </div>
+    </section>
+  </main>
+</body>
+</html>
