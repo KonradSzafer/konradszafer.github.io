@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Konrad Szafer</title>
+  <meta name="description" content="Konrad Szafer, PhD student in Computer Science at ETH Zurich working on adaptation, continual learning, reinforcement learning, and systems.">
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-YJX8LM4892"></script>
@@ -13,16 +14,33 @@
     gtag('js', new Date());
     gtag('config', 'G-YJX8LM4892');
   </script>
-  
+
+  <!-- Apply the saved or system theme before the first paint -->
+  <script>
+    (function () {
+      var saved = null;
+      try { saved = localStorage.getItem('theme'); } catch (e) {}
+      var dark = saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+    })();
+  </script>
+
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header class="navbar">
     <nav>
       <ul>
-        <li><a href="index.html">About</a></li>
-        <li><a href="projects.html#projects">Projects</a></li>
-        <li><a href="blog.html#blog">Blog</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li>
+          <button class="theme-toggle" type="button" aria-label="Switch color theme">
+            <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M4.2 4.2 6 6M18 18l1.8 1.8M2 12h2.5M19.5 12H22M4.2 19.8 6 18M18 6l1.8-1.8"/></svg>
+          </button>
+        </li>
       </ul>
     </nav>
   </header>
@@ -32,16 +50,20 @@
       <div class="about-text">
         <h2>Konrad Szafer</h2>
         <p style="margin-top: 0em; margin-bottom: 2em;">
-          szafer [dot] konrad [at] gmail [dot] com
+          konrad [dot] szafer [at] inf [dot] ethz [dot] ch
         </p>
         <p>
-          I'm currently a research assistant at ETH Zurich, where I'm working on continual learning and world models, inspired by the way the brain learns.
+          I'm a PhD student in Computer Science at ETH Zurich, co-supervised by
+          <a class="inline" href="https://anakli.inf.ethz.ch/" target="_blank">Ana Klimovic</a> and
+          <a class="inline" href="https://scholar.google.com/citations?user=T3hAyLkAAAAJ" target="_blank">Thomas Hofmann</a>.
+          My research focuses on adaptation, continual learning, reinforcement learning, and systems.
         </p>
         <p>
-          Previously, I interned at Hugging Face, contributing to the LLM Evaluation team. I also spent half a year at CMU as a research assistant at AutonLab, where I worked on time-series foundation models and model evaluation with limited labeled data.
+          Before my PhD, I was a research assistant at ETH Zurich, where I worked on adaptation, continual learning, and RL.
+          Previously, I interned at Hugging Face on the Evaluation team and spent half a year at CMU's AutonLab working on time-series foundation models.
         </p>
         <p>
-          I graduated from Poznan University of Technology with a BSc in Automatic Control and Robotics and an MSc in Artificial Intelligence, focusing both of my theses on representation learning and foundation computer vision models—covering 2D and 3D respectively.
+          I graduated from Poznan University of Technology with a BSc in Automatic Control and Robotics and an MSc in Artificial Intelligence (Summa Cum Laude Medal), focusing both of my theses on representation learning for 2D and 3D vision.
         </p>
       </div>
       <div class="about-photo">
@@ -50,12 +72,172 @@
     </section>
 
     <div class="about-links">
-      <a href="mailto:szafer.konrad@gmail.com">Email</a>
-      <a href="https://x.com/KonradSzafer">X</a>
-      <a href="https://huggingface.co/KonradSzafer">Hugging Face</a>
-      <a href="https://github.com/KonradSzafer">GitHub</a>
-      <a href="https://scholar.google.com/citations?user=qm-fDwoAAAAJ&hl=en">Google Scholar</a>
+      <a href="mailto:konrad.szafer@inf.ethz.ch">Email</a>
+      <a href="https://x.com/KonradSzafer" target="_blank">X</a>
+      <a href="https://www.linkedin.com/in/konrad-szafer/" target="_blank">LinkedIn</a>
+      <a href="https://scholar.google.com/citations?user=qm-fDwoAAAAJ&hl=en" target="_blank">Google Scholar</a>
+      <a href="https://github.com/KonradSzafer" target="_blank">GitHub</a>
+      <a href="https://huggingface.co/KonradSzafer" target="_blank">Hugging Face</a>
     </div>
+
+    <!-- ---- PUBLICATIONS ---- -->
+    <section id="publications" class="list-section">
+      <h2 class="section-title">Publications</h2>
+
+      <article class="entry">
+        <a class="entry-thumb" href="https://openreview.net/pdf?id=tWAnCRYMcT" target="_blank">
+          <img src="../assets/thumbs/accuracy_runtime_math.png" alt="Change in accuracy against change in wall-clock time relative to the baseline for each adaptation method" loading="lazy">
+        </a>
+        <div class="entry-body">
+          <h3><a href="https://openreview.net/pdf?id=tWAnCRYMcT" target="_blank">Navigating the Cost-Performance Pareto Frontier of Test-Time LLM Agent Adaptation</a></h3>
+          <p class="authors"><strong>Konrad Szafer</strong>, Xiaozhe Yao, Maximilian Böther, Gregor Bachmann, Tiago Pimentel, Ana Klimovic</p>
+          <p class="venue">ICLR 2026 Lifelong Agent Workshop</p>
+          <div class="entry-links">
+            <a href="https://openreview.net/pdf?id=tWAnCRYMcT" target="_blank">paper</a>
+          </div>
+          <p class="desc">
+            Compares in-context adaptation and RL fine-tuning for LLM agents with verifiable feedback, summarized as an accuracy vs. adaptation compute Pareto frontier. Adaptation helps most when tasks benefit from improved reasoning with the model's existing knowledge, but offers limited gains when they demand learning new facts.
+          </p>
+        </div>
+      </article>
+
+      <article class="entry">
+        <a class="entry-thumb" href="https://arxiv.org/abs/2603.10963" target="_blank">
+          <img src="../assets/thumbs/pointy.png" alt="Pointy: input point cloud and its patch partition" loading="lazy">
+        </a>
+        <div class="entry-body">
+          <h3><a href="https://arxiv.org/abs/2603.10963" target="_blank">Pointy - A Lightweight Transformer for Point Cloud Foundation Models</a></h3>
+          <p class="authors"><strong>Konrad Szafer</strong>, Marek Kraft, Dominik Belter</p>
+          <p class="venue">ICLR 2025 Open Science for Foundation Models Workshop · ACIVS 2025</p>
+          <div class="entry-links">
+            <a href="https://arxiv.org/abs/2603.10963" target="_blank">paper</a>
+            <a href="https://github.com/KonradSzafer/Pointy" target="_blank">code</a>
+            <a href="https://huggingface.co/spaces/KonradSzafer/tech_tree_blog" target="_blank">methodology blog</a>
+          </div>
+          <p class="desc">
+            A lightweight transformer trained on only 39k point clouds. It outperforms several larger foundation models trained on over 200k samples and approaches state-of-the-art models that have seen over a million point clouds, images, and text samples.
+          </p>
+        </div>
+      </article>
+
+      <article class="entry">
+        <a class="entry-thumb" href="https://proceedings.mlr.press/v235/goswami24a.html" target="_blank">
+          <img src="../assets/thumbs/moment.png" alt="MOMENT: masking, patching, and transformer encoder pipeline" loading="lazy">
+        </a>
+        <div class="entry-body">
+          <h3><a href="https://proceedings.mlr.press/v235/goswami24a.html" target="_blank">MOMENT: A Family of Open Time-series Foundation Models</a></h3>
+          <p class="authors">Mononito Goswami, <strong>Konrad Szafer</strong>, Arjun Choudhry, Yifu Cai, Shuo Li, Artur Dubrawski</p>
+          <p class="venue">ICML 2024</p>
+          <div class="entry-links">
+            <a href="https://proceedings.mlr.press/v235/goswami24a.html" target="_blank">paper</a>
+            <a href="https://huggingface.co/AutonLab/MOMENT-1-large" target="_blank">model</a>
+            <a href="https://github.com/moment-timeseries-foundation-model/moment" target="_blank">code</a>
+            <a href="https://github.com/moment-timeseries-foundation-model/moment-research" target="_blank">research code</a>
+          </div>
+          <p class="desc">
+            A family of open-source foundation models for general-purpose time series analysis, pre-trained on the Time Series Pile and effective with minimal data and task-specific fine-tuning. Downloaded over 2M times, with 500+ GitHub stars.
+          </p>
+        </div>
+      </article>
+
+      <article class="entry">
+        <a class="entry-thumb" href="https://icml.cc/virtual/2024/36389" target="_blank">
+          <img src="../assets/thumbs/moment_time_series_pile.png" alt="The Time Series Pile: tasks and data splits, from the MOMENT paper" loading="lazy">
+        </a>
+        <div class="entry-body">
+          <h3><a href="https://icml.cc/virtual/2024/36389" target="_blank">Datasets for Time Series Foundation Models</a></h3>
+          <p class="authors">Arjun Choudhry, <strong>Konrad Szafer</strong>, Mononito Goswami, Yifu Cai, Artur Dubrawski</p>
+          <p class="venue">ICML 2024 Workshop on Data-Centric Machine Learning Research</p>
+          <div class="entry-links">
+            <a href="https://icml.cc/virtual/2024/36389" target="_blank">website</a>
+            <a href="https://huggingface.co/datasets/AutonLab/Timeseries-PILE" target="_blank">dataset</a>
+          </div>
+          <p class="desc">
+            The Time Series Pile, a collection of public time series data, and a benchmark that assesses time series foundation models on various tasks and datasets, even with limited supervision.
+          </p>
+        </div>
+      </article>
+    </section>
+
+    <!-- ---- PROJECTS ---- -->
+    <section id="projects" class="list-section">
+      <h2 class="section-title">Projects</h2>
+
+      <article class="entry">
+        <a class="entry-thumb" href="https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard" target="_blank">
+          <img src="../assets/thumbs/leaderboard.png" alt="Open LLM Leaderboard" loading="lazy">
+        </a>
+        <div class="entry-body">
+          <h3><a href="https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard" target="_blank">Open LLM Leaderboard v2</a></h3>
+          <p class="venue">Hugging Face · 2024</p>
+          <div class="entry-links">
+            <a href="https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard" target="_blank">page</a>
+            <a href="https://huggingface.co/spaces/open-llm-leaderboard/blog" target="_blank">blog</a>
+          </div>
+          <p class="desc">
+            An evaluation suite benchmarking thousands of open-source large language models. I co-authored the v2 release on the Hugging Face Evaluation team.
+          </p>
+        </div>
+      </article>
+
+      <article class="entry">
+        <a class="entry-thumb" href="https://www.youtube.com/watch?v=l0TNA1DbGiM" target="_blank">
+          <img src="../assets/thumbs/alterarm.jpg" alt="AlterARM bionic hand" loading="lazy">
+        </a>
+        <div class="entry-body">
+          <h3><a href="https://www.youtube.com/watch?v=l0TNA1DbGiM" target="_blank">AlterARM</a></h3>
+          <p class="venue">High School · 2018-2021</p>
+          <div class="entry-links">
+            <a href="https://www.youtube.com/watch?v=l0TNA1DbGiM" target="_blank">video</a>
+            <a href="https://www.youtube.com/@alterarm4606" target="_blank">channel</a>
+          </div>
+          <p class="desc">
+            A lightweight bionic prosthetic arm with 13 axes of freedom, a multi-grip hand, and EMG-based muscle control, costing under $1,000. Three iterations built by a two-person team, with over $2,000 in R&amp;D funding from six companies, including Prusa Research and Linak.
+          </p>
+        </div>
+      </article>
+    </section>
+
+    <!-- ---- BLOG ---- -->
+    <section id="blog" class="list-section">
+      <h2 class="section-title">Blog</h2>
+
+      <article class="entry">
+        <a class="entry-thumb" href="https://huggingface.co/spaces/KonradSzafer/tech_tree_blog" target="_blank">
+          <img src="../assets/thumbs/tech_tree.png" alt="Tech tree of experiments" loading="lazy">
+        </a>
+        <div class="entry-body">
+          <h3><a href="https://huggingface.co/spaces/KonradSzafer/tech_tree_blog" target="_blank">Tech Tree - A Systematic Approach to ML Research (and Beyond)</a></h3>
+          <div class="entry-links">
+            <a href="https://huggingface.co/spaces/KonradSzafer/tech_tree_blog" target="_blank">read</a>
+          </div>
+          <p class="desc">
+            A graph of performed experiments that documents research progress and builds better mental models of how components interact.
+          </p>
+        </div>
+      </article>
+    </section>
   </main>
+
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var toggle = document.querySelector('.theme-toggle');
+
+      function updateLabel() {
+        var dark = root.getAttribute('data-theme') === 'dark';
+        toggle.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+      }
+
+      toggle.addEventListener('click', function () {
+        var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', next);
+        try { localStorage.setItem('theme', next); } catch (e) {}
+        updateLabel();
+      });
+
+      updateLabel();
+    })();
+  </script>
 </body>
 </html>
