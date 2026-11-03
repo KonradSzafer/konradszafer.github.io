@@ -5,10 +5,47 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+/* Theme colors, switched by the toggle in the navbar */
+:root {
+  --content-width: 760px; /* Shared content width for navbar and main */
+  --bg: #fff;
+  --text: #333;
+  --text-strong: #222;
+  --text-soft: #555;
+  --text-muted: #666;
+  --line: #ddd;
+  --line-soft: #eee;
+  --separator: #ccc;
+  --pill: #f5f5f5;
+  --link: #007BFF;
+  --link-hover: #0056b3;
+  --toggle: #5b6bd6;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #16181d;
+  --text: #d9dce3;
+  --text-strong: #f2f3f6;
+  --text-soft: #b4b9c4;
+  --text-muted: #a0a6b3;
+  --line: #333843;
+  --line-soft: #2a2e37;
+  --separator: #4a505c;
+  --pill: #23272f;
+  --link: #7ab8ff;
+  --link-hover: #a9d1ff;
+  --toggle: #f5c04e;
+}
+
 body {
   font-family: "Helvetica Neue", Arial, sans-serif;
-  background-color: #fff;
-  color: #333;
+  background-color: var(--bg);
+  color: var(--text);
   line-height: 1.6;
 }
 
@@ -19,22 +56,25 @@ a {
 
 /* ---- NAVBAR ---- */
 .navbar {
-  background: #fff;
+  background: var(--bg);
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  padding: 1rem 2rem;
-  border-bottom: 1px solid #ddd;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--line);
   position: fixed;
   top: 0;
-  left: 30%;
-  right: 30%;
+  left: 2rem;
+  right: 2rem;
+  max-width: calc(var(--content-width) - 4rem); /* Same width as the section lines */
+  margin: 0 auto;
   z-index: 999;
 }
 
 nav ul {
   list-style: none;
   display: flex;
+  align-items: center;
   gap: 1.5rem;
 }
 
@@ -44,12 +84,62 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-  color: #007BFF; /* Hover color */
+  color: var(--link); /* Hover color */
+}
+
+/* ---- THEME TOGGLE ---- */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--toggle);
+  cursor: pointer;
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--link);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.theme-toggle svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.3s ease;
+}
+
+.theme-toggle:hover svg {
+  transform: rotate(20deg);
+}
+
+.icon-sun {
+  display: none;
+}
+
+:root[data-theme="dark"] .icon-sun {
+  display: block;
+}
+
+:root[data-theme="dark"] .icon-moon {
+  display: none;
 }
 
 /* ---- MAIN CONTENT ---- */
 main {
-  margin: 6rem 30% 2rem; /* Centers the content area, 50% wide total */
+  max-width: var(--content-width);
+  margin: 6rem auto 2rem;
+  padding: 0 2rem;
+}
+
+section {
+  scroll-margin-top: 6rem; /* Clears the fixed navbar when jumping to anchors */
 }
 
 /* ---- ABOUT SECTION ---- */
@@ -75,6 +165,15 @@ main {
   margin-bottom: 1rem;
 }
 
+.about-text a.inline {
+  color: var(--link);
+  transition: color 0.3s ease;
+}
+
+.about-text a.inline:hover {
+  color: var(--link-hover);
+}
+
 .about-photo {
   flex: 1 1 0%;
   text-align: center;
@@ -88,24 +187,30 @@ main {
 
 .about-links {
   display: flex;
+  flex-wrap: wrap;
   width: fit-content;
+  max-width: 100%;
   justify-content: center;
   align-items: center;
   gap: 0.45rem;
   padding: 0.5rem 1rem;
-  background-color: #fff;
-  border: 1px solid #ddd;
+  background-color: var(--bg);
+  border: 1px solid var(--line);
   border-radius: 8px;
-  margin: 1rem auto;
+  margin: 1rem auto 3rem;
 }
 
 .about-links a {
-  color: #333;
+  color: var(--text);
   text-decoration: none;
   font-weight: normal;
-  transition: #0056b3;
+  transition: color 0.3s ease;
   display: inline-flex;
   align-items: center;
+}
+
+.about-links a:hover {
+  color: var(--link);
 }
 
 .about-links a:not(:last-child)::after {
@@ -113,100 +218,115 @@ main {
   display: inline-block;
   width: 1px;
   height: 1em;
-  background-color: #ccc;
+  background-color: var(--separator);
   margin-left: 1rem;
   margin-right: 0.5rem;
 }
 
-/* ---- PROJECTS / BLOG SECTIONS ---- */
-section {
-  margin-bottom: 2rem;
+/* ---- PUBLICATIONS / PROJECTS / BLOG ---- */
+.list-section {
+  padding-top: 2rem;
+  margin-bottom: 1.5rem;
+  border-top: 1px solid var(--line);
+  scroll-margin-top: 3.6rem; /* Tucks the section line under the navbar line */
 }
 
-h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-
-h3 {
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
-}
-
-.section-content {
-  margin-bottom: 2rem;
-}
-
-/* ---- PROJECT ITEM STYLE ---- */
-.project {
+.section-title {
+  font-size: 1.4rem;
+  font-weight: 600;
   margin-bottom: 1.5rem;
 }
 
-#projects {
-  /* Adjust this value to match the height of your navbar plus some extra space */
-  scroll-margin-top: 8rem;
+.entry {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+  margin-bottom: 2rem;
 }
 
-.project p {
-  margin-bottom: 1rem;
+/* Thumbnail with the key figure of each paper / project */
+.entry-thumb {
+  flex: 0 0 192px;
+  aspect-ratio: 16 / 10;
+  border: 1px solid var(--line-soft);
+  border-radius: 6px;
+  overflow: hidden;
+  background: #fff; /* Figures are drawn for a white background in both themes */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* -------------------------- */
-/* For VIDEOS: 16:9 container */
-/* -------------------------- */
-.project-media-video {
-  /* Keep video narrower than the text container */
-  max-width: 70%;
-  margin: 1rem auto;
-  position: relative;
-
-  /* Enforce a 16:9 aspect ratio for iframes */
-  aspect-ratio: 16 / 9;
+.entry-thumb:hover {
+  border-color: var(--line);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
-.project-media-video iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
-  object-fit: cover; 
+:root[data-theme="dark"] .entry-thumb {
+  filter: brightness(0.9); /* Softens the white figures against the dark page */
 }
 
-/* ---------------------------- */
-/* For IMAGES: natural ratio    */
-/* ---------------------------- */
-.project-media-image {
-  /* Keep images narrower than the text container, up to 70% of the parent width */
-  max-width: 70%;
-  margin: 1rem auto;
-}
-
-.project-media-image img {
+.entry-thumb img {
   display: block;
   width: 100%;
-  height: auto;   /* Preserves natural aspect ratio */
-  border: 0;
-  /* If you want an absolute max width (e.g. 600px) no matter how wide the screen is: */
-  max-width: 600px; 
+  height: 100%;
+  object-fit: contain; /* Shows figures whole, never cropped */
 }
 
-/* ---- PROJECT LINKS BAR ---- */
-.project-links {
+.entry-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.entry-body h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.35;
+  margin-bottom: 0.3rem;
+}
+
+.entry-body h3 a {
+  transition: color 0.3s ease;
+}
+
+.entry-body h3 a:hover {
+  color: var(--link);
+}
+
+.entry-body .authors,
+.entry-body .venue,
+.entry-body .desc {
+  font-size: 0.92rem;
+}
+
+.entry-body .authors strong {
+  font-weight: 600;
+  color: var(--text-strong);
+}
+
+.entry-body .venue {
+  font-style: italic;
+  color: var(--text-muted);
+}
+
+.entry-body .desc {
+  color: var(--text-soft);
+}
+
+/* ---- ENTRY LINKS BAR ---- */
+.entry-links {
   display: flex;
+  flex-wrap: wrap;
   width: fit-content;
-  justify-content: center;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 1rem;
-  background-color: #f5f5f5; /* light grey background */
+  gap: 0.4rem;
+  padding: 0.2rem 0.75rem;
+  background-color: var(--pill); /* light grey background */
   border-radius: 8px;
-  margin: 1rem auto; /* centers the bar */
+  margin: 0.5rem 0 0.6rem;
+  font-size: 0.88rem;
 }
 
-.project-links a {
-  color: #007BFF;
+.entry-links a {
+  color: var(--link);
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s ease;
@@ -214,19 +334,19 @@ h3 {
   align-items: center;
 }
 
-.project-links a:hover {
-  color: #0056b3;
+.entry-links a:hover {
+  color: var(--link-hover);
 }
 
 /* Delicate separators between links */
-.project-links a:not(:last-child)::after {
+.entry-links a:not(:last-child)::after {
   content: "";
   display: inline-block;
   width: 1px;
   height: 1em;
-  background-color: #ccc;
-  margin-left: 0.75rem;  /* Increased left margin */
-  margin-right: 0.5rem;
+  background-color: var(--separator);
+  margin-left: 0.6rem;
+  margin-right: 0.2rem;
 }
 
 /* ---- RESPONSIVE MEDIA QUERIES ---- */
@@ -238,14 +358,54 @@ h3 {
     margin-bottom: 1.5rem;
   }
 
-  /* Navbar becomes wider on smaller screens but remains centered */
-  .navbar {
-    left: 5%;
-    right: 5%;
+  .about-text {
+    min-width: 0;
   }
 
-  /* Narrow main content more on small screens */
+  .navbar {
+    left: 1rem;
+    right: 1rem;
+  }
+
+  nav ul {
+    gap: 1rem;
+  }
+
   main {
-    margin: 5rem 5% 1rem;
+    margin: 5rem auto 1rem;
+    padding: 0 1rem;
+  }
+
+  .about-links {
+    gap: 0.3rem;
+    padding: 0.5rem 0.6rem;
+    font-size: 0.8rem;
+  }
+
+  .about-links a:not(:last-child)::after {
+    margin-left: 0.4rem;
+    margin-right: 0.1rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .about-links {
+    gap: 0.2rem 0.6rem;
+  }
+
+  /* Spacing replaces separators, so a wrapped row never ends on one */
+  .about-links a:not(:last-child)::after {
+    display: none;
+  }
+
+  .entry {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .entry-thumb {
+    flex: none;
+    width: 100%;
+    max-width: 360px;
   }
 }
