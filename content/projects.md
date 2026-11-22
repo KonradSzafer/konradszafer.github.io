@@ -8,7 +8,7 @@
 
 [page](https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard) · [blog](https://huggingface.co/spaces/open-llm-leaderboard/blog)
 
-An evaluation suite benchmarking thousands of open-source large language models. I co-authored the v2 release on the Hugging Face Evaluation team.
+An evaluation suite benchmarking thousands of open-source large language models. Co-authored the v2 release on the Hugging Face Evaluation team.
 
 ## [AlterARM](https://www.youtube.com/watch?v=l0TNA1DbGiM)
 

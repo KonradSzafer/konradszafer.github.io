@@ -6,4 +6,4 @@
 
 [read](https://huggingface.co/spaces/KonradSzafer/tech_tree_blog)
 
-A graph of performed experiments that documents research progress and builds better mental models of how components interact.
+A graph of implemented ideas that documents research progress and builds better mental models of how components interact.
