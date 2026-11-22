@@ -23,12 +23,8 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Build static site
-        run: |
-          mkdir -p public
-          cp -R src/* public
-          cp -R assets public
-          # Prevent from processing with Jekyll
-          touch public/.nojekyll
+        # Renders content/*.md into public/ (standard library only, no install step)
+        run: python3 build.py
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
